@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.typesafe.play" module="play-java_2.10" revision="2.3-SNAPSHOT" status="integration" publication="20140906144902">
+		<description>
+		Play-Java
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="pt" visibility="public" description="" extends="test"/>
+		
+		
+		
+		
+		<conf name="sources" visibility="public" description=""/>
+		<conf name="docs" visibility="public" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		
+	</configurations>
+	<publications>
+		<artifact name="play-java_2.10" type="pom" ext="pom" conf="pom"/>
+		<artifact name="play-java_2.10" type="jar" ext="jar" conf="compile"/>
+		<artifact name="play-java_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+		<artifact name="play-java_2.10" type="src" ext="jar" conf="sources" e:classifier="tests-sources"/>
+	</publications>
+	<dependencies>
+		
+		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play_2.10" rev="2.3-SNAPSHOT" conf="compile->default(compile);test->test"/>
+		<dependency org="org.yaml" name="snakeyaml" rev="1.13" conf="compile->default(compile)"/>
+		<dependency org="org.hibernate" name="hibernate-validator" rev="5.0.3.Final" conf="compile->default(compile)"/>
+		<dependency org="org.springframework" name="spring-context" rev="4.0.3.RELEASE" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.springframework" module="spring-aop" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.springframework" module="spring-beans" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.springframework" module="spring-core" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.springframework" module="spring-expression" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.springframework" module="spring-asm" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="org.springframework" name="spring-core" rev="4.0.3.RELEASE" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.springframework" module="spring-asm" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="commons-logging" module="commons-logging" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="org.springframework" name="spring-beans" rev="4.0.3.RELEASE" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.springframework" module="spring-core" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="org.javassist" name="javassist" rev="3.18.2-GA" conf="compile->default(compile)"/>
+		<dependency org="org.reflections" name="reflections" rev="0.9.8" transitive="false" conf="compile->default(compile)">
+			<exclude org="javassist" module="javassist" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="com.google.guava" name="guava" rev="16.0.1" conf="compile->default(compile)"/>
+		<dependency org="com.google.code.findbugs" name="jsr305" rev="2.0.3" conf="compile->default(compile)"/>
+		<dependency org="org.apache.tomcat" name="tomcat-servlet-api" rev="8.0.5" conf="compile->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-core_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-junit_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-mock_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-matcher-extra_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="junit" name="junit" rev="4.11" conf="test->default(compile)"/>
+		<dependency org="com.novocode" name="junit-interface" rev="0.11-RC1" conf="test->default(compile)"/>
+		<dependency org="org.easytesting" name="fest-assert" rev="1.4" conf="test->default(compile)"/>
+		<dependency org="org.mockito" name="mockito-all" rev="1.9.5" conf="test->default(compile)"/>
+	</dependencies>
+</ivy-module>

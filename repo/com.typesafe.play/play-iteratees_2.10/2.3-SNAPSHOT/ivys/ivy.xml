@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.typesafe.play" module="play-iteratees_2.10" revision="2.3-SNAPSHOT" status="integration" publication="20140906144808">
+		<description>
+		Play-Iteratees
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="pt" visibility="public" description="" extends="test"/>
+		
+		
+		
+		
+		<conf name="sources" visibility="public" description=""/>
+		<conf name="docs" visibility="public" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		
+	</configurations>
+	<publications>
+		<artifact name="play-iteratees_2.10" type="pom" ext="pom" conf="pom"/>
+		<artifact name="play-iteratees_2.10" type="jar" ext="jar" conf="compile"/>
+		<artifact name="play-iteratees_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+		<artifact name="play-iteratees_2.10" type="src" ext="jar" conf="sources" e:classifier="tests-sources"/>
+	</publications>
+	<dependencies>
+		
+		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" conf="compile->default(compile)"/>
+		<dependency org="org.scala-stm" name="scala-stm_2.10" rev="0.7" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe" name="config" rev="1.2.1" conf="compile->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-core_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-junit_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-mock_2.10" rev="2.3.12" conf="test->default(compile)"/>
+		<dependency org="org.specs2" name="specs2-matcher-extra_2.10" rev="2.3.12" conf="test->default(compile)"/>
+	</dependencies>
+</ivy-module>
